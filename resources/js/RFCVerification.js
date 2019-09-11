@@ -3,7 +3,7 @@ function rfcValido(rfc, aceptarGenerico = true) {
     var   validado = rfc.match(re);
 
     if (!validado)  //Coincide con el formato general del regex?
-        return false;
+        return false; //false;
 
     //Separar el dígito verificador del resto del RFC
     const digitoVerificador = validado.pop(),
@@ -32,7 +32,7 @@ function rfcValido(rfc, aceptarGenerico = true) {
         return false;
     else if (!aceptarGenerico && rfcSinDigito + digitoVerificador == "XEXX010101000")
         return false;
-    return rfcSinDigito + digitoVerificador;
+    return "Válido" ;//rfcSinDigito + digitoVerificador + "VERDADERO";
 }
 
 
@@ -50,11 +50,21 @@ function validarInput(input) {
     	valido = "Válido";
       resultado.classList.add("ok");
     } else {
-    	valido = "No válido"
+        valido = "No válido"
+      var  correcciones = "Revisar el RFC"
     	resultado.classList.remove("ok");
     }
-        
-    resultado.innerText = "RFC: " + rfc 
-                        + "\nResultado: " + rfcCorrecto
+        if(rfcCorrecto){
+            resultado.innerText = "RFC: " + rfc 
+                        //+ "\nResultado: " + rfcCorrecto
                         + "\nFormato: " + valido;
+        }else{
+            resultado.innerText = "RFC: " + rfc 
+            //+ "\nResultado: " + rfcCorrecto
+            + "\nFormato: " + valido
+            +"\nCorrecciones: "+ correcciones;
+        }
+    
+                        
+                        
 }
