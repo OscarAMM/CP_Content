@@ -7,7 +7,6 @@ class catalogos extends MX_Controller{
 		$this->load->model('modelo_catalogos');
 		$this->load->library(array('session','pagination','encrypt'));
 		$this->load->helper(array('array','url','form'));
-		$this->perPage = 10;
 		$this->load->database();
 	/*	$this->load->helper('array');
         $this->load->helper('url');
@@ -27,7 +26,7 @@ class catalogos extends MX_Controller{
 		$this->load->view('header',$datos);
 		$this->load->view('vista_catalogos',$data);
 		$this->load->view('footer');
-		$this->load->view('vista_gestion_bienes');
+		//$this->load->view('vista_gestion_bienes');
 	}
 	public function tutorialesVista(){
 		$tituloMigas = 'Tutoriales';
