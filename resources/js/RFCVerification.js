@@ -50,14 +50,18 @@ function validarInput(input) {
         var vacio = "Ingrese un RFC";
         var correcciones = "Ingrese un RFC";
         resultado.classList.remove("ok");
+        resultado.classList.remove("mal");
         resultado.classList.add("none")
     } else if (rfcCorrecto) {
         valido = "Válido";
+        resultado.classList.remove("mal");
+        resultado.classList.remove("none");
         resultado.classList.add("ok");
     } else {
         valido = "No válido"
         correcciones = "Revisar el RFC"
         resultado.classList.remove("ok");
+        resultado.classList.remove("none");
         resultado.classList.add("mal");
     }
     if (rfcCorrecto) {
