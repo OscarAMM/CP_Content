@@ -1,68 +1,70 @@
-<link rel="stylesheet" href="<?php echo INDEX_CP;?>resources/css/chosen.css" />
-<script src="<?php echo INDEX_CP;?>resources/js/chosen.jquery.js" type="text/javascript"></script>
-<script src="<?php echo INDEX_CP;?>resources/js/image_chosen.js" type="text/javascript"></script>
-<script src="<?php echo INDEX_CP;?>resources/js/solicitud_alta_frmbjs.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo INDEX_CP; ?>resources/css/chosen.css" />
+<script src="<?php echo INDEX_CP; ?>resources/js/chosen.jquery.js" type="text/javascript"></script>
+<script src="<?php echo INDEX_CP; ?>resources/js/image_chosen.js" type="text/javascript"></script>
+<script src="<?php echo INDEX_CP; ?>resources/js/solicitud_alta_frmbjs.js" type="text/javascript"></script>
 <?php
-	$label_atributos = array("class" => "col-sm-2 control-label");
-	$select_atributos = "class='form-control'";
+$label_atributos = array("class" => "col-sm-2 control-label");
+$select_atributos = "class='form-control'";
 
-	$input_bien_cantidad = array(
-			"name" 		=> "input_cantidad",
-			"id"		=> "input_cantidad",
-			"maxlength"	=> "5",
-			"class"		=> "form-control w50",
-			"size"		=> "10",
-			"value"		=> set_value("input_cantidad",(isset($datos_bienes)) ? $datos_bienes[0]->Cantidad : "1")
-		);
-	if(isset($datos_bienes) && $datos_bienes[0]->IdTipoBien == '1')
-		$input_bien_cantidad["readonly"] = "readonly";
-	$input_bien_descripcion = array(
-			"name" 		=> "DescripcionBien",
-			"id"		=> "DescripcionBien",
-			"maxlength"	=> "45",
-			"class"		=> "form-control",			
-			"size"		=> "50",
-			"value"		=> set_value("DescripcionBien",@$datos_bienes[0]->DescripcionBien,"")
-		);
-	$input_bien_marca = array(
-			"name"		=> "MarcaBien",
-			"id"		=> "MarcaBien",
-			"maxlength" => "45",
-			"size"		=> "50",
-			"class"		=> "form-control",	
-			"value"		=> set_value("MarcaBien",@$datos_bienes[0]->MarcaBien,"")
-		);
-	$input_bien_modelo = array(
-			"name"		=> "ModeloBien",
-			"id"		=> "ModeloBien",
-			"maxlength" => "45",
-			"size"		=> "50",
-			"class"		=> "form-control",	
-			"value"		=> set_value("ModeloBien",@$datos_bienes[0]->ModeloBien,"")
-		);
-	$input_bien_serie = array(
-			"name"		=> "SerieBien",
-			"id"		=> "SerieBien",
-			"maxlength"	=> "45",
-			"size"		=> "50",
-			"class"		=> "form-control",	
-			"value"		=> set_value("SerieBien",@$datos_bienes[0]->SerieBien,"")
-		);
-	$input_bien_precioUnitario = array(
-			"name" 		=> "PrecioUnitario",
-			"id"		=> "PrecioUnitario",
-			"size"		=> "50",
-			"class"		=> "form-control",
-			"value"		=> set_value("PrecioUnitario",(isset($datos_bienes)) ? $datos_bienes[0]->PrecioUnitario : "0")
-		);	
-	$input_observaciones = array(
-			"name" 		=> "Observaciones",
-			"id"		=> "Observaciones",
-			"size"		=> "50",
-			"rows"		=> "5",
-			"class"		=> "form-control noresize",
-			"value"		=> set_value("Observaciones",(isset($datos_bienes)) ? $datos_bienes[0]->Observaciones : "")
-		);	
+$input_bien_cantidad = array(
+    "name" => "input_cantidad",
+    "id" => "input_cantidad",
+    "maxlength" => "5",
+    "class" => "form-control w50",
+    "size" => "10",
+    "value" => set_value("input_cantidad", (isset($datos_bienes)) ? $datos_bienes[0]->Cantidad : "1"),
+);
+if (isset($datos_bienes) && $datos_bienes[0]->IdTipoBien == '1') {
+    $input_bien_cantidad["readonly"] = "readonly";
+}
+
+$input_bien_descripcion = array(
+    "name" => "DescripcionBien",
+    "id" => "DescripcionBien",
+    "maxlength" => "45",
+    "class" => "form-control",
+    "size" => "50",
+    "value" => set_value("DescripcionBien", @$datos_bienes[0]->DescripcionBien, ""),
+);
+$input_bien_marca = array(
+    "name" => "MarcaBien",
+    "id" => "MarcaBien",
+    "maxlength" => "45",
+    "size" => "50",
+    "class" => "form-control",
+    "value" => set_value("MarcaBien", @$datos_bienes[0]->MarcaBien, ""),
+);
+$input_bien_modelo = array(
+    "name" => "ModeloBien",
+    "id" => "ModeloBien",
+    "maxlength" => "45",
+    "size" => "50",
+    "class" => "form-control",
+    "value" => set_value("ModeloBien", @$datos_bienes[0]->ModeloBien, ""),
+);
+$input_bien_serie = array(
+    "name" => "SerieBien",
+    "id" => "SerieBien",
+    "maxlength" => "45",
+    "size" => "50",
+    "class" => "form-control",
+    "value" => set_value("SerieBien", @$datos_bienes[0]->SerieBien, ""),
+);
+$input_bien_precioUnitario = array(
+    "name" => "PrecioUnitario",
+    "id" => "PrecioUnitario",
+    "size" => "50",
+    "class" => "form-control",
+    "value" => set_value("PrecioUnitario", (isset($datos_bienes)) ? $datos_bienes[0]->PrecioUnitario : "0"),
+);
+$input_observaciones = array(
+    "name" => "Observaciones",
+    "id" => "Observaciones",
+    "size" => "50",
+    "rows" => "5",
+    "class" => "form-control noresize",
+    "value" => set_value("Observaciones", (isset($datos_bienes)) ? $datos_bienes[0]->Observaciones : ""),
+);
 ?>
 
 <script type="text/javascript">
@@ -116,66 +118,69 @@ $(function() {
     });
     $("#hdn_dlg_frmProv").dialog({
 
-            autoOpen: false,
-            height: 500,
-            width: 600,
-            modal: true,
-            buttons: [{
-                    id: "Cancelar",
-                    text: "Cancelar",
-                    click: function() {
-                        $(this).dialog("close");
-                    }
-                }, {
-                    id: "Aceptar",
-                    text: "Aceptar",
-                    click: function() {
-                        $("#frm_proveedores").submit();
+        autoOpen: false,
+        height: 500,
+        width: 600,
+        modal: true,
+        buttons: [{
+                id: "Cancelar",
+                text: "Cancelar",
+                click: function() {
+                    $(this).dialog("close");
+                }
+            }, {
+                id: "Aceptar",
+                text: "Aceptar",
+                click: function() {
+                    $("#frm_proveedores").submit();
+                }
+            },
+            {
+                id: "Verificar",
+                text: "Verificar",
+                click: function() {
+                    var RFCInput = $("#rfc_input").val().toUpperCase();
+                    if (RFCInput !== '') {
+                        var rfc_moral_regex =
+                            /^(([A-ZÑ&]{3})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$/;
 
-                    }
-                },
-                {
-                    id: "Verificar",
-                    text: "Verificar",
-                    click: function(RFCInput, element) {
-                        var RFCInput = $("#rfc_input").val().toUpperCase();
-                        if (RFCInput !== '') {
-                            var patt = new RegExp(
-                                "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$"
-                                );
-                           // $("#Aceptar").show();
-                            console.log(patt.test(RFCInput));
-                            if(patt.test(RFCInput) == true){
+                        var rfc_fisico_regex =
+                            /^(([A-ZÑ&]{4})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$/;
+
+                        if (RFCInput.match(rfc_moral_regex) || RFCInput.match(
+                            rfc_fisico_regex)) {
+                            console.log("MATCH");
+                            if (rfc_fisico_regex.test(RFCInput) == true || rfc_moral_regex.test(
+                                    RFCInput) == true) {
                                 $("#Aceptar").show();
-                            } else if(patt.test(RFCInput)==false){
-                                alert("El RFC no es correcto. Por favor ingrese el RFC correcto");
-                                $("#Aceptar").hide();
                             }
-                            return patt.test(RFCInput);
-                            
+                            return true;
                         } else {
-                            alert("Llenar el campo de RFC.");
+                            console.log("NOT MATCH");
+                            alert("RFC NO VÁLIDO. INGRESE NUEVAMENTE.");
+                            $("#Aceptar").hide();
                             return false;
                         }
+
+                        /*
+                        if (rfc_fisico.test(RFCInput) == true ) {
+                            $("#Aceptar").show();
+                        } else if (rfc_fisico.test(RFCInput) == false) {
+                            alert("El RFC no es correcto. Por favor ingrese el RFC correcto");
+                            $("#Aceptar").hide();
+                        }*/
+                        // return rfc_fisico.test(RFCInput);
+
+                    } else {
+                        alert("Llenar el campo de RFC.");
+                        return false;
                     }
-
-                /*
-                var RFCInput = $("#rfc_input").val();
-                if (RFCInput != '') {
-                    var patt = new RegExp("^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$");
-                    return patt.test(RFCInput);
-
-                } else {
-                    alert("No se puede verificar el RFC si está vacío el campo.");
-                    $("#Aceptar").hide();
-                    return false;
-
-                }*/
-
-
-
+                }
             }
-        ]
+        ],
+        close: function() {
+            $(this).html("");
+        }
         /*{
 	        Cancelar: function() {
 	          $(this).dialog( "close" );
@@ -189,141 +194,145 @@ $(function() {
 			}
 	      },
 	      close: function() {
-	      	$(this).html("");	      	 
+	      	$(this).html("");
 	      }*/
     });
 
-$("#btn_ver_anexos").click(function() {
-    var anexosID = $("#anexosID").val();
-    var idSolicitud = $("#hdn_IdSolicitud").val();
-    var token = $("#token").val();
+    $("#btn_ver_anexos").click(function() {
+        var anexosID = $("#anexosID").val();
+        var idSolicitud = $("#hdn_IdSolicitud").val();
+        var token = $("#token").val();
 
-    $.ajax({
-        url: uri + "safb_listaAnexosSol",
-        data: {
-            'IdSolicitud': idSolicitud,
-            'cp_hsh4_tk': token,
-            'anexosIDs': anexosID
-        },
-        dataType: "json",
-        type: "POST",
-        cache: false,
-        beforeSend: function() {
-            $("#loadData").show();
-        },
-        success: function(data) {
-            $("#loadData").hide();
-            $("#safrmb_frm_asol_cont").html(data.contenido);
-            $("#dlg_seleccione_anexos").dialog("open");
-        },
-        error: function() {
-            $("#loadData").hide();
-        }
-    });
-});
-
-$("#frm_alta_guarda_bien").submit(function(e) {
-    e.preventDefault();
-
-    $("#token").attr("form", "frm_alta_guarda_bien");
-    $("#hdn_IdSolicitud").attr("form", "frm_alta_guarda_bien");
-    $('input[type="submit"]').prop('disabled', true);
-
-    $.ajax({
-        url: uri + "alta_bien_guardar",
-        data: $(this).serializeArray(),
-        dataType: "json",
-        type: "POST",
-        cache: false,
-        beforeSend: function() {
-            $("#loadData").show();
-        },
-        success: function(data) {
-            $("#form_bienes_content").html(data.contenido);
-            $("#loadData").hide();
-            if (!data.errores) {
-                $("#tab-anexos-solicitud-content").html(data.anexos);
-                $("#btn_can_alta_bien").click();
-
-                if ($("#tab-form-agregaBien").css("display") != "none")
-                    $("#tab-form-agregaBien").toggle("Blind");
-                $("#tablaListadoAlta").jqGrid('setGridParam', {
-                    datatype: 'json'
-                }).trigger('reloadGrid');
-            } else {
-                $(".error").each(function(index) {
-                    if ($(this).text()) {
-                        var id = $(this).attr('id');
-                        var element_position = $("#" + id).offset().top - 40;
-                        $("html, body").animate({
-                            scrollTop: element_position + "px"
-                        });
-                        return false;
-                    }
-                });
+        $.ajax({
+            url: uri + "safb_listaAnexosSol",
+            data: {
+                'IdSolicitud': idSolicitud,
+                'cp_hsh4_tk': token,
+                'anexosIDs': anexosID
+            },
+            dataType: "json",
+            type: "POST",
+            cache: false,
+            beforeSend: function() {
+                $("#loadData").show();
+            },
+            success: function(data) {
+                $("#loadData").hide();
+                $("#safrmb_frm_asol_cont").html(data.contenido);
+                $("#dlg_seleccione_anexos").dialog("open");
+            },
+            error: function() {
+                $("#loadData").hide();
             }
-        },
-        error: function() {
-            $("#loadData").hide();
-        }
+        });
     });
-    //$('#btn_submit_form_bien').prop('disabled', false);	
-    return false;
-});
 
-$("#btn_can_alta_bien").on("click", function() {
-    $("#tab-form-agregaBien").css("display", "none");
-});
+    $("#frm_alta_guarda_bien").submit(function(e) {
+        e.preventDefault();
 
-$("#btn_add_proveedor").on("click", function() {
-    //Verification button
-    $("#Aceptar").hide();
-    $("pre.resultado").hide();
-    //Panel with message
+        $("#token").attr("form", "frm_alta_guarda_bien");
+        $("#hdn_IdSolicitud").attr("form", "frm_alta_guarda_bien");
+        $('input[type="submit"]').prop('disabled', true);
 
-    $.ajax({
-        url: uri + "safb_frmprov",
-        data: {
-            'cp_hsh4_tk': $("#token").val()
-        },
-        dataType: "json",
-        type: "POST",
-        cache: false,
-        beforeSend: function() {
-            $("#loadData").show();
-        },
-        success: function(data) {
-            $("#loadData").hide();
-            $("#hdn_dlg_frmProv").html(data.formulario);
-            $("#hdn_dlg_frmProv").dialog("open");
-        },
-        error: function() {
-            $("#loadData").hide();
-        }
+        $.ajax({
+            url: uri + "alta_bien_guardar",
+            data: $(this).serializeArray(),
+            dataType: "json",
+            type: "POST",
+            cache: false,
+            beforeSend: function() {
+                $("#loadData").show();
+            },
+            success: function(data) {
+                $("#form_bienes_content").html(data.contenido);
+                $("#loadData").hide();
+                if (!data.errores) {
+                    $("#tab-anexos-solicitud-content").html(data.anexos);
+                    $("#btn_can_alta_bien").click();
+
+                    if ($("#tab-form-agregaBien").css("display") != "none")
+                        $("#tab-form-agregaBien").toggle("Blind");
+                    $("#tablaListadoAlta").jqGrid('setGridParam', {
+                        datatype: 'json'
+                    }).trigger('reloadGrid');
+                } else {
+                    $(".error").each(function(index) {
+                        if ($(this).text()) {
+                            var id = $(this).attr('id');
+                            var element_position = $("#" + id).offset().top - 40;
+                            $("html, body").animate({
+                                scrollTop: element_position + "px"
+                            });
+                            return false;
+                        }
+                    });
+                }
+            },
+            error: function() {
+                $("#loadData").hide();
+            }
+        });
+        //$('#btn_submit_form_bien').prop('disabled', false);
+        return false;
     });
-}); $("#Verificar").on("click", function() {
-    $("pre").show();
-});
+
+    $("#btn_can_alta_bien").on("click", function() {
+        $("#tab-form-agregaBien").css("display", "none");
+    });
+
+    $("#btn_add_proveedor").on("click", function() {
+        //Verification button
+        $("#Aceptar").hide();
+        $("pre.resultado").hide();
+        //Panel with message
+
+        $.ajax({
+            url: uri + "safb_frmprov",
+            data: {
+                'cp_hsh4_tk': $("#token").val()
+            },
+            dataType: "json",
+            type: "POST",
+            cache: false,
+            beforeSend: function() {
+                $("#loadData").show();
+            },
+            success: function(data) {
+                $("#loadData").hide();
+                $("#hdn_dlg_frmProv").html(data.formulario);
+                $("#hdn_dlg_frmProv").dialog("open");
+            },
+            error: function() {
+                $("#loadData").hide();
+            }
+        });
+    });
+    $("#Verificar").on("click", function() {
+        $("pre").show();
+    });
 
 
-$("#btn_tg_caracteristicas").on("click", function() {
-    var css_display = $("#panel_caracteristicas").css("display");
-    $("#panel_caracteristicas").toggle("blind");
-    if (css_display == "none") {
-        $("#btn_tg_caracteristicas span").removeClass("glyphicon-circle-arrow-down");
-        $("#btn_tg_caracteristicas span").addClass("glyphicon-circle-arrow-up");
-        $("#btn_tg_caracteristicas b").html("Ocultar características");
-    } else {
-        $("#btn_tg_caracteristicas span").removeClass("glyphicon-circle-arrow-up");
-        $("#btn_tg_caracteristicas span").addClass("glyphicon-circle-arrow-down");
-        $("#btn_tg_caracteristicas b").html("Mostrar características");
-    }
+    $("#btn_tg_caracteristicas").on("click", function() {
+        var css_display = $("#panel_caracteristicas").css("display");
+        $("#panel_caracteristicas").toggle("blind");
+        if (css_display == "none") {
+            $("#btn_tg_caracteristicas span").removeClass("glyphicon-circle-arrow-down");
+            $("#btn_tg_caracteristicas span").addClass("glyphicon-circle-arrow-up");
+            $("#btn_tg_caracteristicas b").html("Ocultar características");
+        } else {
+            $("#btn_tg_caracteristicas span").removeClass("glyphicon-circle-arrow-up");
+            $("#btn_tg_caracteristicas span").addClass("glyphicon-circle-arrow-down");
+            $("#btn_tg_caracteristicas b").html("Mostrar características");
+        }
 
-});
+    });
 
-$("#chk_MarcaBien_NA").prop('checked', ($("#MarcaBien").val().toUpperCase() == "N/A") ? true : false); $(
-    "#chk_ModeloBien_NA").prop('checked', ($("#ModeloBien").val().toUpperCase() == "N/A") ? true : false); $(
-    "#chk_SerieBien_NA").prop('checked', ($("#SerieBien").val().toUpperCase() == "N/A") ? true : false);
+    $("#chk_MarcaBien_NA").prop('checked', ($("#MarcaBien").val().toUpperCase() == "N/A") ? true : false);
+    $(
+        "#chk_ModeloBien_NA").prop('checked', ($("#ModeloBien").val().toUpperCase() == "N/A") ? true :
+        false);
+    $(
+        "#chk_SerieBien_NA").prop('checked', ($("#SerieBien").val().toUpperCase() == "N/A") ? true : false);
 
 });
 
@@ -553,17 +562,17 @@ function escribeNA(id) {
 <form id="frm_alta_guarda_bien" class="form-horizontal" name="frm_guarda_anexo" method="post"
     action="alta_bien_guardar">
     <div class="form-group">
-        <?=form_label("Tipo  <font color='red'>*</font>","lbl_tipoBien",$label_atributos)?>
+        <?=form_label("Tipo  <font color='red'>*</font>", "lbl_tipoBien", $label_atributos)?>
         <div class="col-sm-4">
-            <?=form_dropdown("IdTipoBien",$listado_tiposBien,set_value("IdTipoBien",@$datos_bienes[0]->IdTipoBien,"0"),$select_atributos." onchange='mostrar_articulos(this.value);onChangeTipoBien(this.value)'")?>
+            <?=form_dropdown("IdTipoBien", $listado_tiposBien, set_value("IdTipoBien", @$datos_bienes[0]->IdTipoBien, "0"), $select_atributos . " onchange='mostrar_articulos(this.value);onChangeTipoBien(this.value)'")?>
             <div id="error_IdTipoBien" class="error"><?=form_error('IdTipoBien')?></div>
         </div>
     </div>
-    <div class="form-group" id="div_cmb_articulo" <?=(isset($hidden)) ? $hidden:'hidden="hidden"'?>>
-        <?=form_label("Articulo  <font color='red'>*</font>","lbl_articulo",$label_atributos)?>
+    <div class="form-group" id="div_cmb_articulo" <?=(isset($hidden)) ? $hidden : 'hidden="hidden"'?>>
+        <?=form_label("Articulo  <font color='red'>*</font>", "lbl_articulo", $label_atributos)?>
         <div class="col-sm-4">
-            <?php $listado_articulos = isset($listado_articulos)?$listado_articulos:array("0"=>"Seleccione"); ?>
-            <?=form_dropdown("articulos",$listado_articulos,set_value("articulos",@$datos_bienes[0]->articulos,"0"),$select_atributos." id='cmb_articulo'")?>
+            <?php $listado_articulos = isset($listado_articulos) ? $listado_articulos : array("0" => "Seleccione");?>
+            <?=form_dropdown("articulos", $listado_articulos, set_value("articulos", @$datos_bienes[0]->articulos, "0"), $select_atributos . " id='cmb_articulo'")?>
             <div id="error_articulos" class="error"><?=form_error('articulos')?></div>
         </div>
     </div>
@@ -571,7 +580,7 @@ function escribeNA(id) {
         <div class="col-sm-offset-2 col-sm-4">
             <div class="checkbox">
                 <label>
-                    <?php $checked_BienCompartido = (set_value("BienCompartido",@$datos_bienes[0]->BienCompartido)) ? "checked" : ""; ?>
+                    <?php $checked_BienCompartido = (set_value("BienCompartido", @$datos_bienes[0]->BienCompartido)) ? "checked" : "";?>
                     <input type="checkbox" name="BienCompartido" id="BienCompartido" value="1"
                         <?=$checked_BienCompartido?>> <b>Compartido</b>
                 </label>
@@ -581,9 +590,9 @@ function escribeNA(id) {
     </div>
     <!-- inicio div responsables -->
     <div class="form_group">
-        <?=form_label("Responsables  <font color='red'>*</font>","lbl_responsables",$label_atributos)?>
+        <?=form_label("Responsables  <font color='red'>*</font>", "lbl_responsables", $label_atributos)?>
         <div class="col-sm-10">
-            <?php if($Plantilla == 1){ ?>
+            <?php if ($Plantilla == 1) {?>
             <div class="alert alert-warning"><span>El listado que se muestra a continuación de responsables, es
                     capturada en el sistema de Plantilla de personal. Si desea hacer alguna <b>actualización</b> ó
                     <b>corrección</b> de click al siguiente boton: </span><button type="button" class="btn btn-warning"
@@ -591,53 +600,53 @@ function escribeNA(id) {
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Plantilla de personal
                 </button>
             </div>
-            <?php }  ?>
+            <?php }?>
             <div id="panel_responsables">
-                <?php if(!empty($responsables)){ ?>
-                <?php $disabled_btn_guardar = ""; ?>
-                <?php foreach ($responsables as $r_key => $r_value) { ?>
+                <?php if (!empty($responsables)) {?>
+                <?php $disabled_btn_guardar = "";?>
+                <?php foreach ($responsables as $r_key => $r_value) {?>
                 <div class="checkbox" style="margin:0">
                     <label>
                         <input type="checkbox" name="responsables[]"
-                            value="<?=$r_value['ClaveCT'].'-'.$r_value['RfcDirector'].'-'.$r_value['iTurno']?>"
+                            value="<?=$r_value['ClaveCT'] . '-' . $r_value['RfcDirector'] . '-' . $r_value['iTurno']?>"
                             <?=$r_value['seleccionado']?> <?=$r_value['habilitado']?>
-                            <?php if (@$cct == $r_value['ClaveCT'] && @$turno == $r_value['iTurno']) { echo "checked";}?> />
-                        <?=$r_value["NombreDirector"]." (".$r_value["RfcDirector"].")";?>
+                            <?php if (@$cct == $r_value['ClaveCT'] && @$turno == $r_value['iTurno']) {echo "checked";}?> />
+                        <?=$r_value["NombreDirector"] . " (" . $r_value["RfcDirector"] . ")";?>
                         <div>
-                            <em><b><small><?=$r_value["ClaveCT"]." - ".$r_value["NombreCT"]." (".$r_value["Turno"].")"?></small></b></em>
+                            <em><b><small><?=$r_value["ClaveCT"] . " - " . $r_value["NombreCT"] . " (" . $r_value["Turno"] . ")"?></small></b></em>
                         </div>
                     </label>
                 </div>
-                <?php } ?>
-                <?php } else { ?>
+                <?php }?>
+                <?php } else {?>
                 <?php $disabled_btn_guardar = "disabled"; /*?>
                 <button type="button" class="btn btn-sm btn-danger" aria-label="Left Align"
                     onclick="<?=@$btn_sist_ext_click?>">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <?=@$btn_sist_ext_text?>
                 </button>
-                <?php*/ ?>
-                <?php if($Plantilla == 1){ ?>
+                <?php*/?>
+                <?php if ($Plantilla == 1) {?>
                 <div class="alert alert-danger"><b>No se encontró ningun RESPONSABLE, favor de ir al sistema de
                         Plantilla de Personal para capturar dicha información.</b></div>
                 <button type="button" class="btn btn-default" style="border:0" onclick="refresh_responsables()">
                     <span class="ui-icon refresh_btn"></span>
                 </button>
-                <?php }  else{ ?>
+                <?php } else {?>
                 <div class="alert alert-danger"><b>No se encontró ningun RESPONSABLE, para capturar dicha información de
                         click en el siguiente boton:</b><br>
                     <a target="_blank" href="javascript:PlantillaDirector();" class="btn btn-warning"
                         style="font-size:12px">Capturar Responsable</a>
                     <br><br><b>NOTA:</b> Una vez que tenga capurado la informacion <b>Recargue</b> la pagina.</div>
-                <?php }  ?>
-                <?php }  ?>
-                <?php if(!empty($responsables) && $Plantilla == 0){ /*?>
+                <?php }?>
+                <?php }?>
+                <?php if (!empty($responsables) && $Plantilla == 0) { /*?>
                 <div class="alert alert-warning"><b>Para capturar Otro Responasble de click en el siguiente
                         boton:</b><br>
                     <a target="_blank" href="javascript:PlantillaDirector();" class="btn btn-warning"
                         style="font-size:12px">Capturar Responsable</a>
                     <br><br><b>NOTA:</b> Una vez que tenga capurado la informacion <b>Recargue</b> la pagina.</div>
-                <?php */ }  ?>
+                <?php */}?>
             </div>
             <div id="error_lbl_responsables" class="error"><?=@$error_responsables?></div>
         </div>
@@ -645,7 +654,7 @@ function escribeNA(id) {
     <div class="form_group">&nbsp;</div>
     <!-- fin div responsables -->
     <div class="form-group">
-        <?=form_label("Cantidad  <font color='red'>*</font>","lbl_cantidad",$label_atributos)?>
+        <?=form_label("Cantidad  <font color='red'>*</font>", "lbl_cantidad", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_cantidad)?>
 
@@ -653,21 +662,21 @@ function escribeNA(id) {
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Descripción  <font color='red'>*</font>","lbl_descripcion",$label_atributos)?>
+        <?=form_label("Descripción  <font color='red'>*</font>", "lbl_descripcion", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_descripcion)?>
             <div id="error_DescripcionBien" class="error"><?=form_error('DescripcionBien')?></div>
         </div>
     </div>
     <!-- inicio div caracteristicas -->
-    <div class="form-group" id="color_oculto" <?=(isset($hidden)) ? $hidden:'hidden="hidden"'?>>
-        <?=form_label("Color  <font color='red'>*</font>","lbl_modelo",$label_atributos)?>
+    <div class="form-group" id="color_oculto" <?=(isset($hidden)) ? $hidden : 'hidden="hidden"'?>>
+        <?=form_label("Color  <font color='red'>*</font>", "lbl_modelo", $label_atributos)?>
         <div class="col-sm-4">
-            <?=form_dropdown("caracteristicas[4]",$colores,$caracteristicas[4]['DescripcionCaracteristica'],$select_atributos)?>
+            <?=form_dropdown("caracteristicas[4]", $colores, $caracteristicas[4]['DescripcionCaracteristica'], $select_atributos)?>
             <div id="error_Color" class="error"><?=form_error('caracteristicas[4]')?></div>
         </div>
         <?php /*
-		<?=form_label("Características","lbl_caracteristicas",$label_atributos)?>
+    <?=form_label("Características","lbl_caracteristicas",$label_atributos)?>
         <div class="col-sm-4">
             <div>
                 <button id="btn_tg_caracteristicas" type="button" class="btn btn-primary btn-sm" aria-label="Left Align"
@@ -693,11 +702,11 @@ function escribeNA(id) {
                 </p>
             </div>
         </div>
-        */ ?>
+        */?>
     </div>
     <!-- fin div caracteristicas -->
     <div class="form-group">
-        <?=form_label("Marca  <font color='red'>*</font>","lbl_marca",$label_atributos)?>
+        <?=form_label("Marca  <font color='red'>*</font>", "lbl_marca", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_marca)?>
             <label><input type="checkbox" id="chk_MarcaBien_NA" onchange="escribeNA('MarcaBien')" />
@@ -706,7 +715,7 @@ function escribeNA(id) {
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Modelo  <font color='red'>*</font>","lbl_modelo",$label_atributos)?>
+        <?=form_label("Modelo  <font color='red'>*</font>", "lbl_modelo", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_modelo)?>
             <label><input type="checkbox" id="chk_ModeloBien_NA" onchange="escribeNA('ModeloBien')" />
@@ -715,7 +724,7 @@ function escribeNA(id) {
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Serie  <font color='red'>*</font>","lbl_serie",$label_atributos)?>
+        <?=form_label("Serie  <font color='red'>*</font>", "lbl_serie", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_serie)?>
             <label><input type="checkbox" id="chk_SerieBien_NA" onchange="escribeNA('SerieBien')" />
@@ -725,17 +734,17 @@ function escribeNA(id) {
     </div>
 
     <div class="form-group">
-        <?=form_label("Estado físico  <font color='red'>*</font>","lbl_edoFisico",$label_atributos)?>
+        <?=form_label("Estado físico  <font color='red'>*</font>", "lbl_edoFisico", $label_atributos)?>
         <div class="col-sm-4">
-            <?=form_dropdown("IdEstadoBien",$listado_estadosFisico,set_value("IdEstadoBien",@$datos_bienes[0]->IdEstadoBien,"0"),$select_atributos)?>
+            <?=form_dropdown("IdEstadoBien", $listado_estadosFisico, set_value("IdEstadoBien", @$datos_bienes[0]->IdEstadoBien, "0"), $select_atributos)?>
             <div id="error_IdEstadoBien" class="error"><?=form_error('IdEstadoBien')?></div>
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Proveedor  <font color='red'>*</font>","lbl_proveedor",$label_atributos)?>
+        <?=form_label("Proveedor  <font color='red'>*</font>", "lbl_proveedor", $label_atributos)?>
         <div class="col-sm-4 ui-widget">
-            <?php $select_proveedor_attr = "class='form-control' id='cmb_idProveedor' data-placeholder='Seleccione' style='width:334px;display:inline'"; ?>
-            <?=form_dropdown("IdProveedor",$listado_proveedores,set_value("IdProveedor",@$datos_bienes[0]->IdProveedor,"0"),$select_proveedor_attr)?>
+            <?php $select_proveedor_attr = "class='form-control' id='cmb_idProveedor' data-placeholder='Seleccione' style='width:334px;display:inline'";?>
+            <?=form_dropdown("IdProveedor", $listado_proveedores, set_value("IdProveedor", @$datos_bienes[0]->IdProveedor, "0"), $select_proveedor_attr)?>
             <button id="btn_add_proveedor" type="button" class="btn btn-default btn-xs" aria-label="Left Align"
                 title="Agregar nuevo proveedor">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -745,14 +754,14 @@ function escribeNA(id) {
     </div>
 
     <div class="form-group">
-        <?=form_label("Motivo  <font color='red'>*</font>","lbl_motivoMovimiento",$label_atributos)?>
+        <?=form_label("Motivo  <font color='red'>*</font>", "lbl_motivoMovimiento", $label_atributos)?>
         <div class="col-sm-4">
-            <?=form_dropdown("IdMotivoMovimiento",$listado_motivos,set_value("IdMotivoMovimiento",@$datos_bienes[0]->IdMotivoMovimiento,"0"),$select_atributos.' onchange="onChangeIdMotivoM(this.value)"')?>
+            <?=form_dropdown("IdMotivoMovimiento", $listado_motivos, set_value("IdMotivoMovimiento", @$datos_bienes[0]->IdMotivoMovimiento, "0"), $select_atributos . ' onchange="onChangeIdMotivoM(this.value)"')?>
             <div id="error_IdMotivoMovimiento" class="error"><?=form_error('IdMotivoMovimiento')?></div>
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Forma de adquisición  <font color='red'>*</font>","lbl_recursoBien",$label_atributos)?>
+        <?=form_label("Forma de adquisición  <font color='red'>*</font>", "lbl_recursoBien", $label_atributos)?>
         <div class="col-sm-4">
             <select id="IdRecursoBien" name="IdRecursoBien" class="form-control"><?=$selectrecursos?></select>
             <!--<? //=form_dropdown("IdRecursoBien",$listado_recursosBien,set_value("IdRecursoBien",@$datos_bienes[0]->IdRecursoBien,"0"),$select_atributos)?>-->
@@ -760,7 +769,7 @@ function escribeNA(id) {
         </div>
     </div>
     <div class="form-group">
-        <?=form_label("Precio unitario (con I.V.A.)<font color='red'>*</font>","lbl_precioUnitario",$label_atributos)?>
+        <?=form_label("Precio unitario (con I.V.A.)<font color='red'>*</font>", "lbl_precioUnitario", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_input($input_bien_precioUnitario)?>
             <div class="error"><?=form_error("PrecioUnitario")?></div>
@@ -768,17 +777,17 @@ function escribeNA(id) {
     </div>
     <!-- inicio div anexos -->
     <div class="form-group">
-        <?=form_label("Evidencias  <font color='red'>*</font>","lbl_bienAnexos",$label_atributos)?>
+        <?=form_label("Evidencias  <font color='red'>*</font>", "lbl_bienAnexos", $label_atributos)?>
         <div class="col-sm-4">
             <input type="button" id="btn_ver_anexos" name="btn_seleccionar_anexo" value="Seleccione..." />
             <div class="error"><?=form_error("hdn_anexosBien")?> <?=@$error_evidenciaFactura?></div>
             <div id="safb_lista_anexos" class="panel panel-default">
 
-                <?php if( !empty($listado_anexos) ) {?>
-                <?php $anexosID = ""; ?>
-                <?php foreach ($listado_anexos as $a) { ?>
+                <?php if (!empty($listado_anexos)) {?>
+                <?php $anexosID = "";?>
+                <?php foreach ($listado_anexos as $a) {?>
                 <div>
-                    <?php $urlImg = ($a->ExtensionAnexo == ".pdf") ? INDEX_CP."resources/images/pdf_64x64.png" : INDEX_CP.$a->UbicacionAnexo.$a->NombreAnexo.$a->ExtensionAnexo; ?>
+                    <?php $urlImg = ($a->ExtensionAnexo == ".pdf") ? INDEX_CP . "resources/images/pdf_64x64.png" : INDEX_CP . $a->UbicacionAnexo . $a->NombreAnexo . $a->ExtensionAnexo;?>
                     <button type="button" title="Quitar evidencia" class="btn btn-default btn-xs"
                         aria-label="Left Align" onClick="eliminaAnexo('<?=$a->IdAnexo?>')">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -788,9 +797,9 @@ function escribeNA(id) {
                     </a>
                     <div><?=$a->NoFacturaAnexo?></div>
                 </div>
-                <?php $anexosID .= ($anexosID == "") ? $a->IdAnexo : ",".$a->IdAnexo; ?>
-                <?php } ?>
-                <?php } ?>
+                <?php $anexosID .= ($anexosID == "") ? $a->IdAnexo : "," . $a->IdAnexo;?>
+                <?php }?>
+                <?php }?>
 
                 <input type="hidden" name="hdn_anexosBien" id="anexosID" value="<?=@$anexosID?>" />
             </div>
@@ -799,7 +808,7 @@ function escribeNA(id) {
     <!-- fin div anexos -->
 
     <div class="form-group">
-        <?=form_label("Observaciones","lbl_observaciones",$label_atributos)?>
+        <?=form_label("Observaciones", "lbl_observaciones", $label_atributos)?>
         <div class="col-sm-4">
             <?=form_textarea($input_observaciones)?>
             <div class="error"><?=form_error("Observaciones")?></div>
@@ -808,11 +817,11 @@ function escribeNA(id) {
     <input type="hidden" name="cct" value="<?=@$cct?>" id="cct_back" />
     <input type="hidden" name="turno" value="<?=@$turno?>" id="turno_back" />
     <input type="hidden" id="hdn_IdBien" name="IdBien" value="<?=@$IdBien?>" />
-    <?=form_hidden("IdEstatus",set_value("IdEstatus",@$datos_bienes[0]->IdEstatus,"1"))?>
+    <?=form_hidden("IdEstatus", set_value("IdEstatus", @$datos_bienes[0]->IdEstatus, "1"))?>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <?=form_submit("btn_enviar","Guardar","id = 'btn_submit_form_bien' class = 'btn btn-success textWhite' $disabled_btn_guardar")?>
-            <?=form_reset("btn_cancelar","Cancelar","id = 'btn_can_alta_bien' class = 'btn btn-warning textWhite'")?>
+            <?=form_submit("btn_enviar", "Guardar", "id = 'btn_submit_form_bien' class = 'btn btn-success textWhite' $disabled_btn_guardar")?>
+            <?=form_reset("btn_cancelar", "Cancelar", "id = 'btn_can_alta_bien' class = 'btn btn-warning textWhite'")?>
         </div>
     </div>
 </form>
@@ -835,7 +844,7 @@ function escribeNA(id) {
         <input type='hidden' name='<?=@$token_sist_ext_name?>' value='<?=@$token_sist_ext_val?>' />
     </form>
 </div>
-<?php if($Plantilla == 0){ ?>
+<?php if ($Plantilla == 0) {?>
 <script type="text/javascript">
 function PlantillaDirector() {
     $.ajax({
@@ -965,4 +974,4 @@ function funcionAltaPersonal() {
     }
 }
 </script>
-<?php } ?>
+<?php }?>
