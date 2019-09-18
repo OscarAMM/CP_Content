@@ -41,111 +41,109 @@
     color: black;
     font-weight: bold;
 }
+
 #resultado.ok {
     background-color: green;
-	color:white;
+    color: white;
 }
-#resultado.none{
-	background-color:orange;
-	color: black;
-	font-weight:bold;
+
+#resultado.none {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
 }
-#resultado.mal{
-	background-color:red;
-	color: white;
-	font-weight:bold;
+
+#resultado.mal {
+    background-color: red;
+    color: white;
+    font-weight: bold;
 }
 </style>
 <script type="text/javascript">
-/*
-	$(function(){
-		$("#rfc_input").prop('disabled', true);
-	});*/
-	$(document).ready(function(){
-		$(':input[type="submit"]').prop('disabled', true);
-		$('#rfc_input').keyup(function(){
-			if($(this).val() !=''){
-				$(':input[type="submit"]').prop('disabled', false);
-			}
-		});
-	});
+$(function() {
+    if ($("#rfc_input").val() != '') {
+        $("#frm_proveedores").submit();
+    }
+});
 </script>
 <script type="text/javascript">
-	$(function() {
-		$("#frm_proveedores").on("submit",function(e){
-			e.preventDefault();
-			$("#token").attr("form","frm_proveedores");
-        	
-        	$.ajax({				
-			    url : uri+"safb_addProv",
-			    data : $(this).serializeArray(),
-				dataType : "json",
-				type: "POST",
-				cache: false,
-				beforeSend: function(){
-						
-						$("#loadData").show();
-					},
-				success: function(data){
-					if(data.errores){	
-						$("#hdn_dlg_frmProv").html(data.contenido);
-						if(data.error_msg != "")
-							mensaje(data.error_msg,"Por favor, intente nuevamente","ERROR");
-					}		
-					else{
-						$("#cmb_idProveedor").html(data.cmb_options);					
-						$( "#hdn_dlg_frmProv" ).dialog("close");						
-					}
+$(function() {
+    $("#frm_proveedores").on("submit", function(e) {
+        e.preventDefault();
+        $("#token").attr("form", "frm_proveedores");
 
-					$("#loadData").hide();				   	
-				   },
-				error: function (){
-				   	$("#loadData").hide();				
-				   }
-			});
+        $.ajax({
+            url: uri + "safb_addProv",
+            data: $(this).serializeArray(),
+            dataType: "json",
+            type: "POST",
+            cache: false,
+            beforeSend: function() {
 
-			return false;	
-		});
-	});
+                $("#loadData").show();
+            },
+            success: function(data) {
+                if (data.errores) {
+                    $("#hdn_dlg_frmProv").html(data.contenido);
+                    if (data.error_msg != "")
+                        mensaje(data.error_msg, "Por favor, intente nuevamente", "ERROR");
+                } else {
+                    $("#cmb_idProveedor").html(data.cmb_options);
+                    $("#hdn_dlg_frmProv").dialog("close");
+                }
+
+                $("#loadData").hide();
+            },
+            error: function() {
+                $("#loadData").hide();
+            }
+        });
+
+        return false;
+    });
+});
 </script>
-<div  class="alert alert-warning" role="alert">
-	<p>
-		<img src="<?php echo INDEX_CP ?>resources/images/info.png" class='icon24' alt='Info'> Por favor utilice el siguiente formulario para agregar un proveedor.
-	</p>
-	<p>Evite usar caracteres especiales. El RFC consta de 13 caracteres.</p>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <img src="<?php echo INDEX_CP ?>resources/images/info.png" class='icon24' alt='Info'> Utilice mayúsculas para
+        capturar el RFC.
+    </p>
+    <p> <img src="<?php echo INDEX_CP ?>resources/images/info.png" class='icon24' alt='Info'>RFC: 12 caracteres para morales y 13 para físicas.</p>
+    <p><img src="<?php echo INDEX_CP ?>resources/images/info.png" class='icon24' alt='Info'>Evite usar caracteres
+        especiales.</p>
 </div>
 <form id="frm_proveedores" class="form-horizontal" method="post" action="">
-	<div class="form-group">
-		<?=form_label("RFC  <span class='error'>*</span>","lbl_rfc",$label_atributos)?>
-		<div class="col-sm-10">
-			<?=form_input($input_proveedor_rfc)?>
-			<div class="error"><?=@$error_rfc?></div>
-			<pre id="resultado"></pre>		
-		</div>
-	</div>
-	<div class="form-group">
-		<?=form_label("Nombre  <span class='error'>*</span>","lbl_nombre",$label_atributos)?>
-		<div class="col-sm-10">
-			<?=form_input($input_proveedor_nombre)?>
-			<div class="error"><?=@$error_nombre?></div>		
-		</div>
-	</div>
-	<div class="form-group">
-		<?=form_label("Dirección","lbl_direccion",$label_atributos)?>
-		<div class="col-sm-10">
-			<?=form_input($input_proveedor_direccion)?>
-			<div class="error"></div>	
-		</div>
-	</div>
-	<div class="form-group">
-		<?=form_label("Teléfono","lbl_telefono",$label_atributos)?>
-		<div class="col-sm-10">
-			<?=form_input($input_proveedor_telefono)?>
-			<div class="error"></div>
-		</div>
-	</div>
+    <div class="form-group">
+        <?=form_label("RFC  <span class='error'>*</span>","lbl_rfc",$label_atributos)?>
+        <div class="col-sm-10">
+            <?=form_input($input_proveedor_rfc)?>
+            <div class="error"><?=@$error_rfc?></div>
+            <pre id="resultado" class="resultado"></pre>
+        </div>
+    </div>
+    <div class="form-group">
+        <?=form_label("Nombre  <span class='error'>*</span>","lbl_nombre",$label_atributos)?>
+        <div class="col-sm-10">
+            <?=form_input($input_proveedor_nombre)?>
+            <div class="error"><?=@$error_nombre?></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <?=form_label("Dirección","lbl_direccion",$label_atributos)?>
+        <div class="col-sm-10">
+            <?=form_input($input_proveedor_direccion)?>
+            <div class="error"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <?=form_label("Teléfono","lbl_telefono",$label_atributos)?>
+        <div class="col-sm-10">
+            <?=form_input($input_proveedor_telefono)?>
+            <div class="error"></div>
+        </div>
+    </div>
 </form>
-<div class="error">* Campos obligatorios</div><br/>
+<div class="error">* Campos obligatorios</div><br />
 <?=form_hidden("IdProveedor",set_value("IdProveedor",@$datos_proveedor[0]->IdProveedor))?>
 <?=form_hidden("IdUsuario",set_value("IdUsuario",@$datos_proveedor[0]->IdUsuario))?>
 <script src="<?php echo INDEX_CP?>resources/js/RFCVerification.js"></script>
