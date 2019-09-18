@@ -63,7 +63,7 @@ function validarInput(input) {
         resultado.classList.remove("ok");
         resultado.classList.remove("none");
         resultado.classList.add("mal");
-        if(valido === "No válido" && input.value.length == 13 || valido === "No válido" && input.value.length == 12){
+        if(valido === "No válido" && input.value.length == 13 ){
             alert("Ingrese RFC correcto");
         }
     }
