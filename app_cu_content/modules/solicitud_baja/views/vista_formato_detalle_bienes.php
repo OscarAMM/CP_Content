@@ -46,7 +46,7 @@
                             </div>
 
                         </td>
-                        <td class="col-sm-12">
+                        <td class="col-sm-2">
                             <div><strong>Estado</strong><span style="color:#d64161">*</span></div>
                             <div class="titleTable">
                                 <?php $nOp = 'edoBien_'.$key; echo form_dropdown('edoBien[]', $opEdoBien, '','class="form-control edo_b_'.$key.'"'); ?>
@@ -64,9 +64,9 @@
                             </div>
                             <div class="clearfix"></div>
                             <!--input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value="<?php echo $valueB['nIdBienes']; ?>" class="form-control"-->
-                            <input type="text" maxlength="3" name="nIdBienes[]" id="values" class="i_b" value=""
+                            <input type="hidden" maxlength="3" name="nIdBienes[]" id="values" class="i_b" value=""
                                 class="form-control">
-                            <input type="text" maxlength="3" name="maxBienes[]" id="maxBienes[]"
+                            <input type="hidden" maxlength="3" name="maxBienes[]" id="maxBienes[]"
                                 value="<?php echo $valueB['nBienes']; ?>" class="form-control">
                         </td>
                     </tr>
