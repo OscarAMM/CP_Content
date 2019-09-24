@@ -3,7 +3,7 @@
     <div class="panel-heading"><b>Bienes seleccionados</b></div>
     <div class="panel-body">
         <form method="POST" name="incluirBienes" enctype="multipart/form-data">
-            <table id="iBienes" class="table table-responsive">
+            <table id="iBienes" class="table">
                 <?php foreach ($datosBienes as $key => $valueB) { ?>
                 <tbody>
                     <tr>
@@ -12,6 +12,7 @@
                             <div>
                                 <label>Seleccionar todo:</label>
                                 <input type="checkbox" name="select_all" id="select_all">
+                                <input type="button" value="Verificar" onclick="verificar('select[]')">
                             </div>
                         </td>
                         <td class="col-sm-3">
@@ -27,7 +28,7 @@
 					$ids = explode(',',$valueB['nIdBienes']);  $inventario = explode(',',$valueB['nInventarios']);       
 					foreach($ids as $k => $val){?>
                             <label style="margin-right:15px;">
-                                <input type="checkbox" class="n_inventario" name="select[]"
+                                <input type="checkbox" class="n_inventario" name="select[]" id="n_inventario"
                                     value="<?php echo $val;?>">
                                 <span class="no_bold">No. Inv.:</span>
                                 <?php echo $inventario[$k];?></label>
@@ -49,22 +50,24 @@
                         <td class="col-sm-2">
                             <div><strong>Estado</strong><span style="color:#d64161">*</span></div>
                             <div class="titleTable">
-                                <?php $nOp = 'edoBien_'.$key; echo form_dropdown('edoBien[]', $opEdoBien, '','class="form-control edo_b_'.$key.'"'); ?>
+                                <?php $nOp = 'edoBien_'.$key; echo form_dropdown('edoBien[]', $opEdoBien, '','class="form-control edo_b_'.$key.' "'); ?>
                             </div>
                         </td>
                         <td class="t_9">
                             <div><strong>Evidencias <span style="color:#d64161">*</span></strong></div>
                             <!--input type="file" class="form-control" name="anexo[]" id="anexo[]"-->
                             <div>
-                                <select name="anexos[]" class="anexos_agregar chosen-select2 form-control"
+                                <select id="anexos" name="anexos[]" class="anexos_agregar chosen-select2 form-control"
                                     data-placeholder="Seleccione Evidecia(s)"
                                     style="width:100%;min-width:350px; max-width:350px;" multiple tabindex="3">
+                            
                                     <?php echo $ANEXOS; ?>
+                                    
                                 </select>
                             </div>
                             <div class="clearfix"></div>
                             <!--input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value="<?php echo $valueB['nIdBienes']; ?>" class="form-control"-->
-                            <input type="hidden" maxlength="3" name="nIdBienes[]" id="values" class="i_b" value=""
+                            <input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
                                 class="form-control">
                             <input type="hidden" maxlength="3" name="maxBienes[]" id="maxBienes[]"
                                 value="<?php echo $valueB['nBienes']; ?>" class="form-control">
@@ -87,6 +90,7 @@
         });*/
         /*** END SECOND SELECT ALL TEST*** */
 
+/*
         $('.nInventarios').removeClass('nInventarios');
         $('.n_inventario').change(function(e) {
             valores = "";
@@ -96,8 +100,7 @@
             if ($(this).is(':checked')) {
                 if ($.inArray(v, valores) == -1) {
                     valores.push(v);
-                    console.log(v);
-                    console.log(valores);
+
                 }
                 $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(valores
                     .toString())
@@ -108,7 +111,7 @@
                 val = val.replace(v, '');
                 $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(val)
             }
-        });
+        });*/
 
         $(".chosen-select2").chosen({
             width: "100%",
