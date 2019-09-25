@@ -161,16 +161,6 @@ $(function() {
                             $("#Aceptar").hide();
                             return false;
                         }
-
-                        /*
-                        if (rfc_fisico.test(RFCInput) == true ) {
-                            $("#Aceptar").show();
-                        } else if (rfc_fisico.test(RFCInput) == false) {
-                            alert("El RFC no es correcto. Por favor ingrese el RFC correcto");
-                            $("#Aceptar").hide();
-                        }*/
-                        // return rfc_fisico.test(RFCInput);
-
                     } else {
                         alert("Llenar el campo de RFC.");
                         return false;
@@ -188,9 +178,33 @@ $(function() {
 	        Aceptar: function() {
 	        	$("#frm_proveedores").submit();
 			},
-			Prueba: function(){
-				$(this).prop("disabled", true);
-				console.log("Hola");
+			Verificar: function(){
+				var RFCInput = $("#rfc_input").val().toUpperCase();
+                    if (RFCInput !== '') {
+                        var rfc_moral_regex =
+                            /^(([A-ZÑ&]{3})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|(([A-ZÑ&]{3})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$/;
+
+                        var rfc_fisico_regex =
+                            /^(([A-ZÑ&]{4})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$/;
+
+                        if (RFCInput.match(rfc_moral_regex) || RFCInput.match(
+                            rfc_fisico_regex)) {
+                            console.log("MATCH");
+                            if (rfc_fisico_regex.test(RFCInput) == true || rfc_moral_regex.test(
+                                    RFCInput) == true) {
+                                $("#Aceptar").show();
+                            }
+                            return true;
+                        } else {
+                            console.log("NOT MATCH");
+                            alert("RFC NO VÁLIDO. INGRESE NUEVAMENTE.");
+                            $("#Aceptar").hide();
+                            return false;
+                        }
+                    } else {
+                        alert("Llenar el campo de RFC.");
+                        return false;
+                    }
 			}
 	      },
 	      close: function() {
