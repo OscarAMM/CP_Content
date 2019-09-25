@@ -59,13 +59,7 @@
     font-weight: bold;
 }
 </style>
-<script type="text/javascript">
-$(function() {
-    if ($("#rfc_input").val() != '') {
-        $("#frm_proveedores").submit();
-    }
-});
-</script>
+
 <script type="text/javascript">
 $(function() {
     $("#frm_proveedores").on("submit", function(e) {
