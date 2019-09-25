@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="sticky-footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" media="all" type="image/x-icon"
+        href="<?php echo INDEX_CP ?>resources/images/favicon.ico" />
+    <link href="sticky-footer.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,35 +16,33 @@
     <main role="main" class="container">
         <div class="card">
             <div class="card-title text-center">
-            <?php if($results == ''){
+                <?php if($results == ''){
                 echo "No se pudo encontrar!";
             } ?>
-               <?php  foreach($results as $key => $res) :?>
-                <h4>Resultado de la búsqueda de la serie: <?php echo $res->SerieBien?></h4>
-                <?php endforeach;?> 
+                <h4>Resultado de la búsqueda de la serie</h4>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th>Id</th>
-                            <th>Marca</th>
-                            <th>Serie</th>
-                            <th>Modelo</th>
+                            <th>Nombre Centro Trabajo</th>
                             <th>Descripción</th>
                             <th>ClaveCCT</th>
-                            <th>Nombre Centro Trabajo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Serie</th>
                         </tr>
                     </thead>
                     <?php foreach($results as $key => $res) :?>
                     <tr>
                         <th><?php echo $res->IdBien?></th>
-                        <td><?php echo $res->MarcaBien?></td>
-                        <td><?php echo $res->SerieBien?></td>
-                        <td><?php echo $res->ModeloBien?></td>
-                        <td><?php echo $res->DescripcionBien?></td>
-                        <td><?php echo $res->CLAVECCT?></td>
                         <td><?php echo $res->NOMBRECT?></td>
+                        <td><?php echo $res->CLAVECCT?></td>
+                        <td><?php echo $res->DescripcionBien?></td>
+                        <td><?php echo $res->MarcaBien?></td>
+                        <td><?php echo $res->ModeloBien?></td>
+                        <td><?php echo $res->SerieBien?></td>
                     </tr>
                     <?endforeach; ?>
                 </table>
