@@ -34,8 +34,6 @@ function rfcValido(rfc, aceptarGenerico = true) {
         return false;
     return "Válido";//rfcSinDigito + digitoVerificador + "VERDADERO";
 }
-
-
 //Handler para el evento cuando cambia el input
 // -Lleva la RFC a mayúsculas para validarlo
 // -Elimina los espacios que pueda tener antes o después
@@ -51,7 +49,7 @@ function validarInput(input) {
         var correcciones = "Ingrese un RFC";
         resultado.classList.remove("ok");
         resultado.classList.remove("mal");
-        resultado.classList.add("none")
+        resultado.classList.add("none");
     } else if (rfcCorrecto) {
         valido = "Válido";
         resultado.classList.remove("mal");
@@ -63,8 +61,8 @@ function validarInput(input) {
         resultado.classList.remove("ok");
         resultado.classList.remove("none");
         resultado.classList.add("mal");
-        if(valido === "No válido" && input.value.length == 13 ){
-            alert("Ingrese RFC correcto");
+        if (valido === "No válido" && input.value.length == 13) {
+            alert("Ingrese un RFC correcto");
         }
     }
     if (rfcCorrecto) {
@@ -79,9 +77,5 @@ function validarInput(input) {
         if (rfcCorrecto != rfcCorrecto.valueOf("Válido")) {
             "\nCorrecciones: " + vacio;
         }
-
     }
-
-
-
 }
