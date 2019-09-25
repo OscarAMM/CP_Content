@@ -8,7 +8,7 @@
 			if ($VERIFICACION){ ?>
 
     <span class="">
-        <a target="_blank" href="ReporteControlPatrimonial" class="btn btn-info" ><span
+        <a target="_blank" href="ReporteControlPatrimonial" class="btn btn-info"><span
                 class="glyphicon glyphicon-list"></span> Reporte <b>Listado de
                 Bienes</b></a></span>
     <?php }else{ ?>
@@ -33,6 +33,6 @@
 			break;
 	}
 	?>
-	
+
     <!-- LOS CASES PERTENECEN A CADA TIPO DE USUARIO ---->
 </div>
