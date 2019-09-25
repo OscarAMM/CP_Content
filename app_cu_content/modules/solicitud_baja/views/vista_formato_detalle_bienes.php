@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <div class="panel panel-primary">
     <div class="panel-heading"><b>Bienes seleccionados</b></div>
     <div class="panel-body">
@@ -12,8 +11,11 @@
                             <div>
                                 <label>Seleccionar todo:</label>
                                 <input type="checkbox" name="select_all" id="select_all">
-                                <input type="button" value="Verificar" onclick="verificar('select[]')">
                             </div>
+                            <!--<div>
+                                <input type="button" value="Verificar" onclick="verificar('select[]')"
+                                    class="btn btn-primary">
+                            </div> -->
                         </td>
                         <td class="col-sm-3">
                             <div><b>Seleccionar bienes</b><span style="color:#d64161">*</span></div>
@@ -60,9 +62,9 @@
                                 <select id="anexos" name="anexos[]" class="anexos_agregar chosen-select2 form-control"
                                     data-placeholder="Seleccione Evidecia(s)"
                                     style="width:100%;min-width:350px; max-width:350px;" multiple tabindex="3">
-                            
+
                                     <?php echo $ANEXOS; ?>
-                                    
+
                                 </select>
                             </div>
                             <div class="clearfix"></div>
@@ -89,29 +91,28 @@
          
         });*/
         /*** END SECOND SELECT ALL TEST*** */
+        /*
+                $('.nInventarios').removeClass('nInventarios');
+                $('.n_inventario').change(function(e) {
+                    valores = "";
+                    val = $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val();
+                    valores = (val != '') ? val.split(',') : [];
+                    v = $(this).val();
+                    if ($(this).is(':checked')) {
+                        if ($.inArray(v, valores) == -1) {
+                            valores.push(v);
 
-/*
-        $('.nInventarios').removeClass('nInventarios');
-        $('.n_inventario').change(function(e) {
-            valores = "";
-            val = $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val();
-            valores = (val != '') ? val.split(',') : [];
-            v = $(this).val();
-            if ($(this).is(':checked')) {
-                if ($.inArray(v, valores) == -1) {
-                    valores.push(v);
-
-                }
-                $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(valores
-                    .toString())
-            } else {
-                //valores.splice($.inArray(v, val),1);
-                val = val.replace(v + ',', '');
-                val = val.replace(',' + v, '');
-                val = val.replace(v, '');
-                $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(val)
-            }
-        });*/
+                        }
+                        $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(valores
+                            .toString())
+                    } else {
+                        //valores.splice($.inArray(v, val),1);
+                        val = val.replace(v + ',', '');
+                        val = val.replace(',' + v, '');
+                        val = val.replace(v, '');
+                        $(this).parent('label').parent('td').parent('tr').children('.t_9').children('.i_b').val(val)
+                    }
+                });*/
 
         $(".chosen-select2").chosen({
             width: "100%",
