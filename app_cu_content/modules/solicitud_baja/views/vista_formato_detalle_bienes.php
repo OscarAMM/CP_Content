@@ -88,75 +88,6 @@
             <div class="error" style="color: #d64161">* Campos obligatorios</div>
         </form>
         <script type="text/javascript">
-        //CHECKBOX DE SELECCION DE TODOS
-        /** FUNCIONA SOLO FALTA AGREGARLO AL CAMPO Y SEPARAR POR COMAS */
-        $(function() {
-            $('input:checkbox.main-checkbox').click(function() {
-                var array = [];
-                var arraysplited = [];
-                var parent = $(this).closest('.main-parent');
-                $(parent).find('.n_inventario').prop("checked", $(this).prop("checked"));
-                if ($(this).is(':checked')) {
-                    $(parent).find('.n_inventario:checked').each(function() {
-                        arraysplited = array.push($(this).val().split(','));
-                        $(parent).parent().parent().parent().children('.t_9').children('.i_b')
-                            .val(
-                                array).css({
-                                "color": "green",
-                                "border": "2px solid green"
-                            });
-
-                        //array.push($(this).val());
-
-                    });
-                } else {
-                    $(parent).parent().parent().parent().children('.t_9').children('.i_b')
-                        .val(
-                            "").css({
-                            "color": "red",
-                            "border": "2px solid red"
-                        });
-                }
-
-            });
-        });
-
-        /*** FUNCIONA SOLO FALTA AGREGARLO AL CAMPO Y SEPARAR POR COMAS */
-        /*  $(function() {
-            $('input:checkbox.n_inventario').change(function() {
-                var array = [];
-                $.each($('input:checkbox.n_inventario'), function() {
-                    array.push($(this).val().split(','));
-$('input:checkbox.n_inventario').parent().parent().parent().parent()
-                        .parent().parent().parent().children('.t_9').children('.i_b').val(array)
-                        .css({
-                            "color": "chocolate",
-                            "border": "2px solid chocolate"
-                        });
-                });
-            });
-        });*/
-
-
-        $('.nInventarios').removeClass('nInventarios');
-        $('.n_inventario').change(function(e) {
-            valores = [];
-            valor = $(this).parent().parent().parent().parent().parent().parent().parent().children('.t_9').children('.i_b').val();
-            valores = (valor != '') ? valor.split(',') : [];
-            v = $(this).val();
-            if ($(this).is(':checked')) {
-                if ($.inArray(v, valores) == -1) {
-                    valores.push(v);
-                }
-                $(this).parent().parent().parent().parent().parent().parent().parent().children('.t_9').children('.i_b').val(valores.toString());
-            } else {
-                //valores.splice($.inArray(v, val),1);
-                valor = valor.replace(v + ',', '');
-                valor = valor.replace(',' + v, '');
-                valor = valor.replace(v, '');
-                $(this).parent().parent().parent().parent().parent().parent().parent().children('.t_9').children('.i_b').val(valor);
-            }
-        });
 
         $(".chosen-select2").chosen({
             width: "100%",
@@ -183,8 +114,7 @@ $('input:checkbox.n_inventario').parent().parent().parent().parent()
             }
         });
         </script>
-        <!--
-            FUNCIONA DE UNO EN UNO
-        <script src="<?php echo INDEX_CP ?>resources/js/check_all.js"></script>  -->
+      
+        <script src="<?php echo INDEX_CP ?>resources/js/check_all.js"></script>
     </div>
 </div>
