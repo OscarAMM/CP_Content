@@ -47,7 +47,7 @@
                                 type="hidden" name="motMov[]" value="17"></span>
                     </td>
                     <td class="t_9">
-                        <input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
+                        <input type="hidden" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
                             class="form-control">
                         <input type="hidden" maxlength="3" name="maxBienes[]" id="maxBienes[]"
                             value="<?php echo $valueB['nBienes']; ?>" class="form-control">
