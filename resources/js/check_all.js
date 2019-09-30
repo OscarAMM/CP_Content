@@ -2,13 +2,13 @@ var select_all = document.getElementById('select_all');
 var checkboxes = document.getElementsByClassName('n_inventario');
 var inputHidden = document.getElementById('nIdBienes[]');
 var formulario = document.getElementById('iBienes');
-var array = [];
 
-formulario.addEventListener("click", function(){
+
+/**** MÉTODO BUENO *** */
+formulario.addEventListener("click", function () {
     array = [];
-    inputHidden.setAttribute('value', "");
-    for(var i = 0; i<checkboxes.length; i++){
-        if(checkboxes[i].checked == true){
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked == true) {
             array.push(checkboxes[i].value);
             var arraySplited = array.join(", ");
             inputHidden.setAttribute('value', arraySplited);
@@ -17,27 +17,10 @@ formulario.addEventListener("click", function(){
     }
 
 });
-/*
-function verificar() {
-    array = [];
-    inputHidden.setAttribute('value', "");
-    for (var i = 0; i < checkboxes.length; i++) {
-        if(checkboxes[i].checked == true){
-            array.push(checkboxes[i].value);
-            var arraySplited = array.join(", ");
-            console.log(arraySplited);
-            inputHidden.setAttribute('value', arraySplited);
-        }
-        if(checkboxes[i].checked == false){
-            inputHidden.removeAttribute('vale', arraySplited);
-            array = [];
-        }
-    }
-    console.log(array);
-    
-}*/
+
 
 //Evento para el checkbox de todo. 
+/* FUNCIONA PARA UNO CUANDO ES getById*/
 select_all.addEventListener("change", function (e) {
     array = [];
     for (i = 0; i < checkboxes.length; i++) {
@@ -58,6 +41,7 @@ select_all.addEventListener("change", function (e) {
     console.log(arraySplited);
 
 });
+
 
 
 
