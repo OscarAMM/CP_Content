@@ -22,10 +22,9 @@
                 <div class="jumbotron text-white" style="background-color:#0D58A6">
 
                     <h4 class="display-4">Calendario de eventos próximos</h4>
+                    <hr>
                     <p class="lead">Se presenta el calendario con todos los eventos agregados.</p>
                 </div>
-
-
                 <div class="row" style="width:60%">
                     <div class="col-md-12">
                         <div id="calendar" class="align-center"></div>
@@ -75,7 +74,7 @@
             </div>
         </div>
         <script type="text/javascript">
-        var events = < ? php echo json_encode($data) ? > ;
+        var events = <?php echo json_encode($data) ?>;
 
         var date = new Date()
         var d = date.getDate(),
