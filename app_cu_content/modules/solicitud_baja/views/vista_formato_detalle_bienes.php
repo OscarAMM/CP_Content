@@ -6,13 +6,9 @@
                 <?php foreach ($datosBienes as $key => $valueB) {?>
                 <tbody>
                     <tr>
-                        <!--td><div class="col-sm-12"><b>Cant.</b></div><span class="titleTable"><input type="text" maxlength="3" name="nBienes[]" id="nBienes[]" <?php if ($valueB['nBienes'] == 1) {
-    echo 'disabled';
-}
-    ?> value="<?php echo $valueB['nBienes']; ?>" class="w50 form-control"></span-->
-                        <td class="col">
+                        <!--td><div class="col-sm-12"><b>Cant.</b></div><span class="titleTable"><input type="text" maxlength="3" name="nBienes[]" id="nBienes[]" <?php if ($valueB['nBienes'] == 1) {echo 'disabled';}?> value="<?php echo $valueB['nBienes']; ?>" class="w50 form-control"></span-->
+                        <td class="col-sm-4">
                             <div><b>Seleccionar bienes</b><span style="color:#d64161">*</span></div>
-
                             <?php
                             $enc_url = str_replace(array('-', '_', '~'), array('+', '/', '='), $valueB['nIdBienes']);
                             $valueB['nIdBienes'] = $this->encrypt->decode($enc_url);
@@ -77,7 +73,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <!--input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value="<?php echo $valueB['nIdBienes']; ?>" class="form-control"-->
-                            <input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
+                            <input type="hidden" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
                                 class="form-control" disabled>
                             <input type="hidden" maxlength="3" name="maxBienes[]" id="maxBienes[]"
                                 value="<?php echo $valueB['nBienes']; ?>" class="form-control">
