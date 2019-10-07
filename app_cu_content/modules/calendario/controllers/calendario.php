@@ -49,14 +49,17 @@ class calendario extends CI_Controller
         $this->load->view('vista_eventos',['events'=>$events] );
     }
     public function delete_data(){
+        $this->mc->delete_data();
+        if($this->mc->delete_data()){
+            $this->session->set_flashdata('category_success', 'Los eventos han sido eliminados satisfactoriamente.');
+            redirect(INDEX_CP.'vista_calendario');
+        }
+        
       /* $id =  $this->input->get('id');
        if($this->mc->delete_data($id)){
            $data['events'] = $this->mc->list_all();
            $this->load->view('vista_eventos', $data);
        }**/
-      if($this->mc->delete_data()) {
-        redirect(INDEX_CP.'vista_calendario');
-      }
        
 
     }
