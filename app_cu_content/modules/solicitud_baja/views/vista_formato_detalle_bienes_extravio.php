@@ -10,7 +10,7 @@
                 <tr>
                     <!--td><div class="col-sm-12"><b>Cant.</b></div><span class="titleTable"><input type="text" maxlength="3" name="nBienes[]" id="nBienes[]" <?php if($valueB['nBienes'] == 1) echo 'disabled'; ?> value="<?php echo $valueB['nBienes']; ?>" class="w50 form-control"></span-->
                     <td style="max-width: 365px;">
-                        <div class="col-sm-12"><b>Seleccione que bienes desea dar de baja:</b></div>
+                        <div class="col-sm-12"><b>Seleccionar bienes</b></div>
                         <?php
 					$enc_url=str_replace(array('-', '_', '~'),array('+', '/', '='), $valueB['nIdBienes']); 
         			$valueB['nIdBienes'] = $this->encrypt->decode($enc_url); 

@@ -10,7 +10,7 @@
     echo 'disabled';
 }
     ?> value="<?php echo $valueB['nBienes']; ?>" class="w50 form-control"></span-->
-                        <td class="col-sm-5">
+                        <td class="col">
                             <div><b>Seleccionar bienes</b><span style="color:#d64161">*</span></div>
 
                             <?php
@@ -26,6 +26,7 @@
                                 <li class="main-parent">
                                     <label>Seleccionar todo:</label>
                                     <input class="main-checkbox" type="checkbox" name="select_all" id="select_all">
+                                    <br>
                                     <?php
                             foreach ($ids as $k => $val) {?>
                                     <label style="margin-right:15px;">
@@ -76,7 +77,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <!--input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value="<?php echo $valueB['nIdBienes']; ?>" class="form-control"-->
-                            <input type="hidden" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
+                            <input type="text" maxlength="3" name="nIdBienes[]" id="nIdBienes[]" class="i_b" value=""
                                 class="form-control" disabled>
                             <input type="hidden" maxlength="3" name="maxBienes[]" id="maxBienes[]"
                                 value="<?php echo $valueB['nBienes']; ?>" class="form-control">
