@@ -17,15 +17,17 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 order-md-1">
-                <div class="jumbotron text-white" style="background-color:#0D58A6">
+    <div class="jumbotron" style="background-color:#0D58A6">
 
-                    <h4 class="display-4">Calendario de eventos próximos</h4>
-                    <hr>
-                    <p class="lead">Se presenta el calendario con todos los eventos agregados.</p>
-                </div>
-                <div class="row" style="width:60%">
+<h4 class="display-4 text-white">Calendario de eventos próximos</h4>
+<hr>
+<p class="lead text-white"><small>Se presenta el calendario con todos los eventos agregados.</small> </p>
+</div>
+        <div class="row">
+        
+            <div class="col-md-12 order-md-1">
+                
+                <div class="row" style="width:80%;">
                     <div class="col-md-12">
                         <div id="calendar" class="align-center"></div>
                     </div>
