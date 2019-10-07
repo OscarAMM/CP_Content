@@ -40,7 +40,7 @@ class calendario extends CI_Controller
     public function list_all(){
         $config = [
             'base_url' =>base_url(INDEX_CP).'/calendario_eventos',
-            'per_page'=> 10,
+            'per_page'=> 50,
             'total_rows'=> $this->mc->num_rows(),
         ];
         $this->pagination->initialize($config);
@@ -52,7 +52,7 @@ class calendario extends CI_Controller
         $this->mc->delete_data();
         if($this->mc->delete_data()){
             $this->session->set_flashdata('category_success', 'Los eventos han sido eliminados satisfactoriamente.');
-            redirect(INDEX_CP.'vista_calendario');
+            redirect(INDEX_CP.'vista_eventos');
         }
         
       /* $id =  $this->input->get('id');
