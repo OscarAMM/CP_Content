@@ -12,10 +12,10 @@
 
 <body>
     <div class="container-fluid">
-        <div class="jumbotron">
-            <h4 class="display-4">Eventos</h4>
-            <p class="lead">Esta sección se encuentran todos los eventos listados en el calendario.</p>
-        </div>
+        <div class="jumbotron"style="background-color:#0D58A6" >
+            <h4 class="display-4 text-white"><strong>Eventos</strong></h4>
+            <p class="lead text-white">Esta sección se encuentran todos los eventos listados en el calendario.</p>
+        </div>  
         <div> <a href="<?php echo INDEX_CP?>vista_calendario" class="btn btn-primary">Regresar</a>
             <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAll" data-id="#"
                 data-name="#">Eliminar</a>
