@@ -10,8 +10,8 @@ class modelo_calendario extends CI_Model
     /********FULL CALENDAR*********/
     private $evento = 'events';
     function get_event_list(){
-         $this->db->select('id,title,start_date, end_date');
-         $this->db->from('events');
+        $this->db->select('id,title,start_date, end_date');
+        $this->db->from('events');
         $query = $this->db->get();
         if($query){
             return $query->result();
