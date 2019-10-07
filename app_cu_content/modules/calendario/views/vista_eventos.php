@@ -28,9 +28,9 @@
                     <th>Fecha de fin</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody">
                 <?php foreach($events as $key => $data):?>
-                <tr>
+                <tr class="events">
                     <td><?php echo $data->title?></td>
                     <td><?php echo $data->start_date?></td>
                     <td><?php echo $data->end_date?></td>
@@ -99,7 +99,10 @@
                 //$(this).addClass("done");
                 $('#deleteAll').modal('hide');
                 //We call the parent (tr) and then the col (td) and we remove!
-                $(link).parent().parent().remove()
+                $(link).parent().parent().parent().parent().children().children().children('.table').children('.tbody').children().remove().css({
+                    "color": "red",
+                    "border": "2px solid red"
+                });
             });
         });
     })
