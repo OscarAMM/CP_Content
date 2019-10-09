@@ -2,6 +2,7 @@
 <script src="<?php echo INDEX_CP; ?>resources/js/chosen.jquery.js" type="text/javascript"></script>
 <script src="<?php echo INDEX_CP; ?>resources/js/image_chosen.js" type="text/javascript"></script>
 <script src="<?php echo INDEX_CP; ?>resources/js/solicitud_alta_frmbjs.js" type="text/javascript"></script>
+
 <?php
 $label_atributos = array("class" => "col-sm-2 control-label");
 $select_atributos = "class='form-control'";
@@ -135,6 +136,7 @@ $(function() {
                     $("#frm_proveedores").submit();
                 }
             },
+            /*
             {
                 id: "Verificar",
                 text: "Verificar",
@@ -148,7 +150,7 @@ $(function() {
                             /^(([A-ZÑ&]{4})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|(([A-ZÑ&]{4})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$/;
 
                         if (RFCInput.match(rfc_moral_regex) || RFCInput.match(
-                            rfc_fisico_regex)) {
+                                rfc_fisico_regex)) {
                             console.log("MATCH");
                             if (rfc_fisico_regex.test(RFCInput) == true || rfc_moral_regex.test(
                                     RFCInput) == true) {
@@ -166,7 +168,7 @@ $(function() {
                         return false;
                     }
                 }
-            }
+            }*/
         ],
         close: function() {
             $(this).html("");
@@ -793,7 +795,13 @@ function escribeNA(id) {
     <div class="form-group">
         <?=form_label("Evidencias  <font color='red'>*</font>", "lbl_bienAnexos", $label_atributos)?>
         <div class="col-sm-4">
-            <input type="button" id="btn_ver_anexos" name="btn_seleccionar_anexo" value="Seleccione..." />
+            <input type="button" id="btn_ver_anexos" name="btn_seleccionar_anexo" value="Seleccionar"
+                class="btn btn-info">
+            <!------------------------- PRUEBA --------------------------------->
+            <label>Prueba</label>
+            <a href="javascript:abrirVentana('<?php echo INDEX_CP?>vista_anexo_prueba')" id="evidencia_nuevo" class="btn btn-warning text-white">Agregar evidencias</a>
+            <!--<input type="button" value="Agregar evidencias" class="btn btn-warning" id="evidencia_nuevo">-->
+            <!---------------------- PRUEBA ------------------------------------>
             <div class="error"><?=form_error("hdn_anexosBien")?> <?=@$error_evidenciaFactura?></div>
             <div id="safb_lista_anexos" class="panel panel-default">
 
@@ -835,7 +843,7 @@ function escribeNA(id) {
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <?=form_submit("btn_enviar", "Guardar", "id = 'btn_submit_form_bien' class = 'btn btn-success textWhite' $disabled_btn_guardar")?>
-            <?=form_reset("btn_cancelar", "Cancelar", "id = 'btn_can_alta_bien' class = 'btn btn-warning textWhite'")?>
+            <?=form_reset("btn_cancelar", "Cancelar", "id = 'btn_can_alta_bien' class = 'btn btn-danger'")?>
         </div>
     </div>
 </form>
@@ -858,6 +866,9 @@ function escribeNA(id) {
         <input type='hidden' name='<?=@$token_sist_ext_name?>' value='<?=@$token_sist_ext_val?>' />
     </form>
 </div>
+
+<script src="<?php echo INDEX_CP?>resources/js/evidencia_bienes.js"></script>
+
 <?php if ($Plantilla == 0) {?>
 <script type="text/javascript">
 function PlantillaDirector() {
@@ -988,4 +999,5 @@ function funcionAltaPersonal() {
     }
 }
 </script>
+
 <?php }?>
