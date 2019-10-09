@@ -1,6 +1,8 @@
 function rfcValido(rfc, aceptarGenerico = true) {
     const re = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
-    var validado = rfc.match(re);
+    var validado  = rfc.match(re);
+    
+    
 
     if (!validado)  //Coincide con el formato general del regex?
         return false; //false;
@@ -43,39 +45,58 @@ function validarInput(input) {
         valido;
 
     var rfcCorrecto = rfcValido(rfc);   // Acá se comprueba
+    if(rfc.length == 12 || rfc.length==13 || rfc.length == 0 ||rfc.length >0){
     if (rfc == "") {
         valido = "Vacio";
         var vacio = "Ingrese un RFC";
         var correcciones = "Ingrese un RFC";
         resultado.classList.remove("ok");
         resultado.classList.remove("mal");
+        resultado.classList.remove("captura");
         resultado.classList.add("none");
+        $("#Aceptar").hide();
     } else if (rfcCorrecto) {
         valido = "Válido";
         resultado.classList.remove("mal");
         resultado.classList.remove("none");
+        resultado.classList.remove("captura");
         resultado.classList.add("ok");
-    } else {
+        $("#Aceptar").show();
+    } else if(rfc.length < 13  ){
+        valido = "Capturando";
+        resultado.classList.remove("ok");
+        resultado.classList.remove("none");
+        resultado.classList.remove("mal");
+        resultado.classList.add("captura");
+        $("#Aceptar").hide();
+    }else {
         valido = "No válido"
         correcciones = "Revisar el RFC"
         resultado.classList.remove("ok");
         resultado.classList.remove("none");
+        resultado.classList.remove("captura");
         resultado.classList.add("mal");
+        $("#Aceptar").hide();
         if (valido === "No válido" && input.value.length == 13) {
             alert("Ingrese un RFC correcto");
         }
     }
-    if (rfcCorrecto) {
-        resultado.innerText = "RFC: " + rfc
-            //+ "\nResultado: " + rfcCorrecto
-            + "\nFormato: " + valido;
-    } else {
-        resultado.innerText = "RFC: " + rfc
-            //+ "\nResultado: " + rfcCorrecto
-            + "\nFormato: " + valido
-            + "\nCorrecciones: " + correcciones;
-        if (rfcCorrecto != rfcCorrecto.valueOf("Válido")) {
-            "\nCorrecciones: " + vacio;
+    
+        if (rfcCorrecto) {
+            resultado.innerText = "RFC: " + rfc
+                //+ "\nResultado: " + rfcCorrecto
+                + "\nFormato: " + valido;
+        } else {
+            resultado.innerText = "RFC: " + rfc
+                //+ "\nResultado: " + rfcCorrecto
+                + "\nFormato: " + valido
+                + "\nCorrecciones: " + correcciones;
+            if (rfcCorrecto != rfcCorrecto.valueOf("Válido")) {
+                "\nCorrecciones: " + vacio;
+            } else if(valido == "Capturando"){
+                resultado.innerText = "RFC: "+rfc+"\nEstatus: "+ valido;
+            }
         }
     }
+   
 }
