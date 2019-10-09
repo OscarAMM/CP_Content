@@ -48,14 +48,19 @@
 }
 
 #resultado.none {
-    background-color: orange;
-    color: black;
+    background-color: #FFEB00;
+    color: #5908b9;
     font-weight: bold;
 }
 
 #resultado.mal {
     background-color: red;
     color: white;
+    font-weight: bold;
+}
+#resultado.captura{
+    background-color: #1D38A8;
+    color:white;
     font-weight: bold;
 }
 </style>
@@ -81,6 +86,8 @@ $(function() {
                     $("#hdn_dlg_frmProv").html(data.contenido);
                     if (data.error_msg != "")
                         mensaje(data.error_msg, "Por favor, intente nuevamente", "ERROR");
+                        $("#Aceptar").hide();
+                        $("#rfc_input").val('');
                 } else {
                     $("#cmb_idProveedor").html(data.cmb_options);
                     $("#hdn_dlg_frmProv").dialog("close");
